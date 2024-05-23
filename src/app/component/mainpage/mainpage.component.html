@@ -1,0 +1,38 @@
+<!-- mainpage.component.html -->
+<div class="login-container">
+<div class="dashboard">
+  <h1 class="dashboard-title">Student Information Dashboard</h1>
+  <div class="info-list">
+    <ul>
+      <li *ngFor="let info of infos" class="info-item">
+        <div class="info-date">{{ info.date }}</div>
+        <div class="info-feedback">{{ info.feedback }}</div>
+        <div class="info-hw">{{ info.hw }}</div>
+        <div class="info-questions">{{ info.mockquestions }}</div>
+        <button (click)="deleteInfo(info.id)" class="delete-btn">Delete</button>
+      </li>
+    </ul>
+  </div>
+
+  <h2 class="form-title">Add New Information</h2>
+  <form (ngSubmit)="addInfo()" class="info-form">
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input [(ngModel)]="newInfo.date" name="date" required id="date" class="input-field">
+    </div>
+    <div class="form-group">
+      <label for="feedback">Feedback:</label>
+      <input [(ngModel)]="newInfo.feedback" name="feedback" required id="feedback" class="input-field">
+    </div>
+    <div class="form-group">
+      <label for="hw">Homework:</label>
+      <input [(ngModel)]="newInfo.hw" name="hw" required id="hw" class="input-field">
+    </div>
+    <div class="form-group">
+      <label for="mockquestions">Mock Questions:</label>
+      <input [(ngModel)]="newInfo.mockquestions" name="mockquestions" required id="mockquestions" class="input-field">
+    </div>
+    <button type="submit" class="submit-btn">Add Info</button>
+  </form>
+</div>
+</div>
